@@ -1,0 +1,2 @@
+Aleksandr;Pushkin;35;Rom�ntico;S.XIX;*
+Walt;Whitman;50;Realismo estadounidense;S.XIX;*

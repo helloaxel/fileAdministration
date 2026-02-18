@@ -20,21 +20,21 @@ public class Registro {
         
         
         
-    //Pillar la ruta y ponerla en una variable
+    //Optimizar el acceso a la ruta guardandola en una variable
     
     String ruta = System.getProperty("user.dir");
     
     //A partir de la ruta, crear un directorio
     
-    File carpeta = new File(ruta + File.separator + "Students");
+    File carpeta = new File(ruta + File.separator + "Authors");
     
-        //Creamos directorio y archivo si no lo hay
+       
         
         if(!carpeta.exists()){
             carpeta.mkdir();  
         }
         
-    File fichero = new File(ruta + File.separator + "Students" + File.separator + "list.txt");
+    File fichero = new File(ruta + File.separator + "Authors" + File.separator + "list.txt");
     
         if(!fichero.exists()){
             fichero.createNewFile();
@@ -45,7 +45,7 @@ public class Registro {
     
     FileWriter fw = new FileWriter(fichero, true);
     
-    //Para poder trabajar con el FW, le enlazamos el Buffer
+    //Usamos BufferedWriter para optimizar la escritura en disco evitando accesos constantes
     
     BufferedWriter bw = new BufferedWriter(fw);
         
@@ -61,8 +61,8 @@ public class Registro {
                       
             System.out.println(" **** Menu **** ");
             
-            System.out.println("Opción 1: Agregar un nuevo alumno: ");
-            System.out.println("Opción 2: Mostrar la lista de alumnos registrados: ");
+            System.out.println("Opción 1: Agregar un nuevo autor: ");
+            System.out.println("Opción 2: Mostrar la lista de autores registrados: ");
             System.out.println("Opción 3: Salir del programa.");
             
            int opc = sc.nextInt();
@@ -72,10 +72,7 @@ public class Registro {
                 
                     
                     case 1:
-                            
-                      //  try{    
-                           
-                            
+                                                        
                             System.out.println("Nombre:");
                             String nombre = sc.nextLine();
                             bw.write(nombre + ";");
@@ -91,23 +88,19 @@ public class Registro {
                             
                             sc.nextLine();
                             
-                            System.out.println("Curso:");
-                            String curso = sc.nextLine();
-                            bw.write(curso + ";");
+                            System.out.println("Corriente Literaria:");
+                            String corriente = sc.nextLine();
+                            bw.write(corriente + ";");
                             
-                            System.out.println("Dni:");
-                            String dni = sc.nextLine();
-                            bw.write(dni + ";*");
+                            System.out.println("Periodo Histórico:");
+                            String periodo = sc.nextLine();
+                            bw.write(periodo + ";*");
                             
                             bw.newLine();
                             
                             bw.flush();
                            
                         
-     //                   }catch(IOException e){
-                            
-                           // System.out.println("Valores incorrectos");
-                  //      } 
                          break;
                          
                     case 2:
@@ -121,6 +114,7 @@ public class Registro {
                            for(String trozo : trozos){ 
                                System.out.println(trozo);
                               
+
                            }
                         }
                         
@@ -151,10 +145,6 @@ public class Registro {
 }
 
 
-
-        
-        
-        
     
     
 
