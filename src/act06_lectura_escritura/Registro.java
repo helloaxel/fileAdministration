@@ -45,48 +45,49 @@ public class Registro {
 
         boolean flag = false;
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); //Sustituir registro mediante teclado x métodos de Objeto Autor
 
+        
         while (!flag) {
-
+            
             System.out.println(" **** Menu **** ");
-
-            System.out.println("Opción 1: Agregar un nuevo autor: ");
+            
+            System.out.println("Opción 1: Agregar un nuevo autor/a: ");
             System.out.println("Opción 2: Mostrar la lista de autores registrados: ");
             System.out.println("Opción 3: Salir del programa.");
-
+            
             int opc = sc.nextInt();
-
+            
             sc.nextLine(); // Limpieza de buffer del Scanner entre diferentes tipos de métodos
+
             switch (opc) {
-
+                
                 case 1:
-
+                                        
+                    System.out.println("Introduce los datos del autor/a:");
+                    
+                    
                     System.out.println("Nombre:");
                     String nombre = sc.nextLine();
-                    bw.write(nombre + ";");
 
                     System.out.println("Apellido:");
                     String apellido = sc.nextLine();
-                    bw.write(apellido + ";");
 
                     System.out.println("Edad:");
                     int edad = sc.nextInt();
-                    bw.write(edad + ";");
-
+                    
                     sc.nextLine();
 
                     System.out.println("Corriente Literaria:");
                     String corriente = sc.nextLine();
-                    bw.write(corriente + ";");
 
                     System.out.println("Periodo Histórico:");
                     String periodo = sc.nextLine();
-                    bw.write(periodo + ";*");
+                    
+                    Autor autor1 = new Autor(nombre, apellido, edad, corriente, periodo);
 
-                    bw.newLine();
-
-                    bw.flush();
+                    autor1.guardarAutor(bw);
+    
 
                     break;
 
@@ -124,5 +125,32 @@ public class Registro {
         }
 
     }
+
+}
+
+class Autor {
+    String nombre;
+    String apellido;
+    int edad;
+    String corriente;
+    String periodo;
+
+    public Autor (String nombre, String apellido, int edad, String corriente, String periodo){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.corriente = corriente;
+        this.periodo = periodo;
+    }
+
+    //Método para guardar el autor en el fichero
+    public void guardarAutor(BufferedWriter bw) throws IOException {
+        bw.write(nombre + ";" + apellido + ";" + edad + ";" + corriente + ";" + periodo + ";*");
+        bw.newLine();
+        bw.flush();
+    } 
+    
+
+
 
 }

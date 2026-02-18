@@ -1,2 +1,3 @@
 Aleksandr;Pushkin;35;Rom�ntico;S.XIX;*
 Walt;Whitman;50;Realismo estadounidense;S.XIX;*
+Mary Shelley;Wollstonecraft;30;Romanticismo britanico;S.XVIII-XIX;*
